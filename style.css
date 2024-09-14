@@ -1,0 +1,258 @@
+/* Style de la barre de navigation */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Permet d'avoir les éléments à gauche et à droite */
+    padding: 10px 20px;
+    align-items: center;
+    width: 98%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Menu à gauche */
+.left-menu {
+    font-weight: bold;
+}
+
+.left-menu .elearning {
+    color: white;
+    text-decoration: none;
+}
+
+/* Menu à droite */
+.right-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.right-menu li {
+    position: relative;
+}
+
+.right-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Menu déroulant sous "Profil" */
+.right-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    background-color: white;
+    padding: 0;
+    list-style-type: none;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-menu .dropdown li a {
+    color: black;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.right-menu .dropdown li a:hover {
+    background-color: lightgray;
+}
+
+/* Affichage du menu déroulant lors du survol */
+.profil:hover .dropdown {
+    display: block;
+}
+
+/* Ajoute de l'espace en haut pour que le contenu ne soit pas masqué par le menu */
+body {
+    margin: 0;
+    padding-top: 60px; /* Hauteur du menu */
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000;
+    transition: background-color 0.5s ease;
+}
+
+
+
+
+/* Conteneur principal */
+.container {
+    width: 45%;
+    height: 50%;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+
+.container:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Boutons de navigation */
+.button-container:not(#result-section button) {
+    position: fixed;
+    top: 20%;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+button:not(#result-section button){
+    padding: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    /* border-radius: 30px; */
+    cursor: pointer;
+    margin-bottom:115px;
+    width: 200px;
+    margin-left: 70%;
+    margin-top: 30%;
+    /* transition: background-color 0.3s ease, transform 0.3s ease; */
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-5px);
+}
+
+/* Barre de progression */
+#progress-container {
+    width: 90%; /* Ajuster la largeur pour qu'elle ne dépasse pas la section */
+    max-width: 400px; /* Largeur maximale pour éviter qu'elle ne devienne trop large */
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    margin: 20px auto; /* Centrer la barre de progression horizontalement */
+    position: relative;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #ff5e00;
+    width: 0%; /* Débuter avec 0% et ajuster en fonction de la progression */
+    transition: width 0.3s ease-in-out; /* Ajouter une animation douce pour les changements de largeur */
+}
+
+#timer-display {
+    font-size: 1em;
+    margin-bottom: 20px; /* Espacement entre le timer et les questions */
+    color: #333;
+}
+
+
+
+/* Sections */
+.section {
+    display: none;
+}
+
+/* Section active */
+.section.active {
+    display: block;
+    padding: 5% 15%; /* Réduction du padding en haut */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Ajustement spécifique pour la section du questionnaire */
+#questionnaire-section {
+    margin-top: -30px; /* Remonter la section */
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+h2{
+    color: #ff5e00;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Conteneur des questions */
+#question-container {
+    text-align: left;
+}
+
+#question-container h3 {
+    color: #000000;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger; 
+}
+/* Style des labels et des radios */
+#question-container label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+#question-container input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #000000; /* Bouton radio en noir */
+
+}
+
+#question-container input[type="radio"]:checked + span {
+    color: #000000; /* Texte en noir lorsqu'une option est sélectionnée */
+}
+
+/* Message d'erreur */
+#error-message {
+    margin-top: 20px;
+    color: #3dc5bc;
+    font-size: 1.1em;
+}
+
+/* Animation des erreurs */
+#error-message {
+    animation: shake 0.5s ease-in-out; 
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+#Message{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    font-weight: bolder;
+    font-style: oblique;
+    margin-top: 17%;
+}
+.bd{
+    background-color: #f48200; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 50%;
+    display: inline;
+}
