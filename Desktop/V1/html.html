@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec conversion en majuscules</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulaire</h1>
+        <form id="form">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom">
+
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" oninput="convertToUpperCase()">
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
